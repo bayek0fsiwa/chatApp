@@ -3,3 +3,5 @@ Lib
 Scripts
 pyvenv.cfg
 .vscode
+__pycache__
+.pytest_cache
