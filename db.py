@@ -1,12 +1,14 @@
 from datetime import datetime
-
+import os
 from bson import ObjectId
 from pymongo import MongoClient, DESCENDING
 from werkzeug.security import generate_password_hash
-
+from dotenv import load_dotenv, find_dotenv
 from user import User
 
-client = MongoClient("mongodb+srv://test:test@chatapp-q7wkc.mongodb.net/test?retryWrites=true&w=majority")
+load_dotenv(find_dotenv())
+
+client = MongoClient(os.getenv("uri"))
 
 chat_db = client.get_database("ChatDB")
 users_collection = chat_db.get_collection("users")
